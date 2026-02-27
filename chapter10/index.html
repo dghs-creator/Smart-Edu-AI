@@ -1,0 +1,2017 @@
+
+<!doctype html>
+<html lang="ko" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="AI를 단순한 답 복사 도구가 아닌 진짜 학습 도우미로 활용하는 방법을 16차시에 걸쳐 실습 중심으로 익히는 고등학생 대상 실전 교육자료입니다.">
+      
+      
+        <meta name="author" content="Created with EduFlow">
+      
+      
+      
+        <link rel="prev" href="../chapter09/">
+      
+      
+        <link rel="next" href="../chapter11/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.3">
+    
+    
+      
+        <title>시험 준비의 게임 체인저 – NotebookLM으로 범위 정리와 예상 문제 만들기 - AI로 공부가 달라진다: ChatGPT·Gemini·NotebookLM 실전 활용 수업</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Noto Sans KR";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/custom.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="deep-purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#notebooklm" class="md-skip">
+          콘텐츠로 이동
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="상단/헤더">
+    <a href=".." title="AI로 공부가 달라진다: ChatGPT·Gemini·NotebookLM 실전 활용 수업" class="md-header__button md-logo" aria-label="AI로 공부가 달라진다: ChatGPT·Gemini·NotebookLM 실전 활용 수업" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            AI로 공부가 달라진다: ChatGPT·Gemini·NotebookLM 실전 활용 수업
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              시험 준비의 게임 체인저 – NotebookLM으로 범위 정리와 예상 문제 만들기
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="deep-purple"  aria-label="다크 모드로 전환"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="다크 모드로 전환" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="deep-purple"  aria-label="라이트 모드로 전환"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="라이트 모드로 전환" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="검색" placeholder="검색" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="검색">
+        
+        <button type="reset" class="md-search__icon md-icon" title="지우기" aria-label="지우기" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            검색 초기화
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="탭" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../chapter01/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Part 1 - [1권] Part 1. 출발선에 서기 – AI 학습 도구의 전체 지도
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../chapter02/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Part 2 - [1권] Part 2. ChatGPT와 Gemini 나란히 쓰기 – 기본기 완성
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../chapter06/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Part 3 - [1권] Part 3. Canvas와 Gems로 레벨업 – 결과물 만들기
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../chapter09/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Part 4 - [2권] Part 4. NotebookLM 집중 탐구 – 나만의 지식 도서관 만들기
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../chapter13/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Part 5 - [2권] Part 5. 실전 프로젝트 – 수행평가와 탐구의 모든 것
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../chapter15/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Part 6 - [2권] Part 6. 마무리와 도약 – 포트폴리오 완성과 다음 단계
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="네비게이션" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="AI로 공부가 달라진다: ChatGPT·Gemini·NotebookLM 실전 활용 수업" class="md-nav__button md-logo" aria-label="AI로 공부가 달라진다: ChatGPT·Gemini·NotebookLM 실전 활용 수업" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    AI로 공부가 달라진다: ChatGPT·Gemini·NotebookLM 실전 활용 수업
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part 1 - [1권] Part 1. 출발선에 서기 – AI 학습 도구의 전체 지도
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Part 1 - [1권] Part 1. 출발선에 서기 – AI 학습 도구의 전체 지도
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    왜 AI로 공부해야 할까? – 달라지는 공부의 풍경
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part 2 - [1권] Part 2. ChatGPT와 Gemini 나란히 쓰기 – 기본기 완성
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Part 2 - [1권] Part 2. ChatGPT와 Gemini 나란히 쓰기 – 기본기 완성
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    개념이 안 잡힐 때 – AI에게 제대로 질문하는 법
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter03/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    개념 사이의 연결고리 찾기 – 비교·관계·구조화 질문법
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter04/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    외울 게 산더미일 때 – AI와 함께하는 스마트 암기 전략
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter05/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    여기까지 점검! – 나만의 AI 질문 습관 만들기
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part 3 - [1권] Part 3. Canvas와 Gems로 레벨업 – 결과물 만들기
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Part 3 - [1권] Part 3. Canvas와 Gems로 레벨업 – 결과물 만들기
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter06/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    발표 자료가 급할 때 – Canvas로 슬라이드와 스크립트 한번에
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter07/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    글이 안 써질 때 – AI와 함께 구조 잡고 초고 쓰기
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter08/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    보고서와 자료 조사 – 신뢰할 수 있는 정보 찾고 정리하기
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part 4 - [2권] Part 4. NotebookLM 집중 탐구 – 나만의 지식 도서관 만들기
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Part 4 - [2권] Part 4. NotebookLM 집중 탐구 – 나만의 지식 도서관 만들기
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter09/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    처음 만나는 NotebookLM – 내 자료를 올리면 마법이 시작된다
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    시험 준비의 게임 체인저 – NotebookLM으로 범위 정리와 예상 문제 만들기
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    시험 준비의 게임 체인저 – NotebookLM으로 범위 정리와 예상 문제 만들기
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="목차">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      목차
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🎯 이 장의 학습 목표
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📚 미리 알아야 할 것
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📚 핵심 개념
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📚 핵심 개념">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-ai" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        개념 1: 소스 기반 요약 — "AI가 교과서만 보고 정리해주는 과외 선생님"
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-ai" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        개념 2: AI 출제 &amp; 오답 분석 — "나만의 모의고사 + 즉석 해설 강의"
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔨 따라하기: 시험 준비 풀 사이클 실습
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔨 따라하기: 시험 준비 풀 사이클 실습">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        상황 설정 🎬
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-1-notebooklm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1: 시험 범위 자료를 NotebookLM에 모두 업로드하기
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2: 전체 범위 핵심 요약 요청하기
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3: 예상 문제 출제받기
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 4: 답을 말하고 오답 분석받기
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-5-chatgptgemini" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 5: ChatGPT·Gemini 암기 전략과 결합하기
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ⚠️ 주의할 점
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ✅ 점검하기
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📌 이 장의 핵심 정리
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🤔 스스로 점검해 봐요
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🚀 다음 장 미리보기
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter11/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    책 한 권 제대로 씹어 먹기 – NotebookLM으로 깊이 읽기
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter12/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    중간 점검! – 도구 세 개를 넘나드는 공부 루틴 설계
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part 5 - [2권] Part 5. 실전 프로젝트 – 수행평가와 탐구의 모든 것
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Part 5 - [2권] Part 5. 실전 프로젝트 – 수행평가와 탐구의 모든 것
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter13/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    탐구 주제 잡기부터 리서치 질문까지 – AI와 함께 탐구 설계하기
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter14/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    수행평가 완전 정복 – 보고서·발표·토론 한번에 준비하기
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part 6 - [2권] Part 6. 마무리와 도약 – 포트폴리오 완성과 다음 단계
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Part 6 - [2권] Part 6. 마무리와 도약 – 포트폴리오 완성과 다음 단계
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter15/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    나만의 AI 학습 포트폴리오 만들기 – 16차시를 하나로 엮다
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter16/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    다음 단계로 나아가기 – 공유, 피드백, 그리고 계속 진화하는 AI 공부법
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="목차">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      목차
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🎯 이 장의 학습 목표
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📚 미리 알아야 할 것
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📚 핵심 개념
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📚 핵심 개념">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-ai" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        개념 1: 소스 기반 요약 — "AI가 교과서만 보고 정리해주는 과외 선생님"
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-ai" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        개념 2: AI 출제 &amp; 오답 분석 — "나만의 모의고사 + 즉석 해설 강의"
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔨 따라하기: 시험 준비 풀 사이클 실습
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔨 따라하기: 시험 준비 풀 사이클 실습">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        상황 설정 🎬
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-1-notebooklm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1: 시험 범위 자료를 NotebookLM에 모두 업로드하기
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2: 전체 범위 핵심 요약 요청하기
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3: 예상 문제 출제받기
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 4: 답을 말하고 오답 분석받기
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-5-chatgptgemini" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 5: ChatGPT·Gemini 암기 전략과 결합하기
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ⚠️ 주의할 점
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ✅ 점검하기
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📌 이 장의 핵심 정리
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🤔 스스로 점검해 봐요
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🚀 다음 장 미리보기
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="notebooklm">시험 준비의 게임 체인저 – NotebookLM으로 범위 정리와 예상 문제 만들기<a class="headerlink" href="#notebooklm" title="Permanent link">&para;</a></h1>
+<h2 id="_1">🎯 이 장의 학습 목표<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>이 장을 마치면 다음을 할 수 있습니다:</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> 시험 범위 자료를 NotebookLM에 업로드하여 <strong>전체 범위 요약을 자동 생성</strong>할 수 있다</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> NotebookLM에게 <strong>예상 문제를 출제받고 오답을 분석</strong>하는 대화를 수행할 수 있다</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> ChatGPT·Gemini 암기 전략과 결합해 <strong>시험 준비 풀 사이클</strong>을 완성할 수 있다</li>
+</ul>
+<p><strong>예상 학습 시간: 약 50분</strong></p>
+<h2 id="_2">📚 미리 알아야 할 것<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>9차시 복습</strong>: NotebookLM에 자료를 업로드하고, 소스 기반으로 질문하는 기본 사용법을 배웠어요</li>
+<li><strong>4차시 복습</strong>: ChatGPT·Gemini를 활용한 암기 전략(플래시카드, 연상기억법 등)을 익혔어요</li>
+</ul>
+<blockquote>
+<p>아직 익숙하지 않다면 9차시를 한 번 훑어보고 오시면 훨씬 수월해요! 😊</p>
+</blockquote>
+<hr />
+<h2 id="_3">📚 핵심 개념<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<h3 id="1-ai">개념 1: 소스 기반 요약 — "AI가 교과서만 보고 정리해주는 과외 선생님"<a class="headerlink" href="#1-ai" title="Permanent link">&para;</a></h3>
+<p><strong>비유로 시작할게요.</strong> 📖</p>
+<p>시험 범위가 챕터 5~12까지인데, 프린트 8장, 수업 필기 노트, PDF 교재가 뒤섞여 있다고 상상해 보세요. 이걸 한 명의 과외 선생님에게 전부 건네주며 "이것만 보고 핵심 정리해줘"라고 부탁하는 거예요. 그 선생님이 바로 NotebookLM입니다.</p>
+<p><strong>정확한 정의</strong></p>
+<p>소스 기반 요약이란, NotebookLM이 <strong>여러분이 업로드한 자료(소스)만을</strong> 근거로 삼아 핵심 내용을 추출·정리해주는 기능이에요. 인터넷 검색 결과가 아니라 <strong>내가 올린 자료에서만</strong> 답을 만들어주기 때문에, 시험 범위를 벗어난 엉뚱한 내용이 섞일 걱정이 없습니다.</p>
+<p><strong>예시로 확인</strong></p>
+<ul>
+<li>한국사 시험: 수업 프린트 5장 + 교과서 PDF → "조선 후기 정치 변동 핵심 3가지로 정리해줘"</li>
+<li>생물학 시험: 강의 노트 + 실험 보고서 → "세포 분열 과정을 단계별로 요약해줘"</li>
+</ul>
+<hr />
+<h3 id="2-ai">개념 2: AI 출제 &amp; 오답 분석 — "나만의 모의고사 + 즉석 해설 강의"<a class="headerlink" href="#2-ai" title="Permanent link">&para;</a></h3>
+<p><strong>비유로 시작할게요.</strong> 🎯</p>
+<p>문제집을 사서 풀면 답지를 봐야 하고, 왜 틀렸는지는 스스로 고민해야 하죠? NotebookLM에게 문제를 내달라고 하면, <strong>출제 → 채점 → 오답 해설</strong>까지 한자리에서 대화로 해결할 수 있어요. 마치 시험 범위를 완벽히 파악한 튜터가 옆에서 문제를 내고 바로 설명해주는 것과 같습니다.</p>
+<p><strong>정확한 정의</strong></p>
+<p>업로드된 소스를 기반으로 NotebookLM에게 "예상 문제를 만들어줘"라고 요청하면, 자료 내용에 근거한 문제를 생성합니다. 답을 말하면 맞았는지 확인해주고, <strong>틀린 부분은 소스의 어느 부분에 해당 내용이 있는지</strong> 인용과 함께 알려줘요.</p>
+<blockquote>
+<p>💡 <strong>잠깐!</strong> 여기까지 이해가 잘 되셨나요?
+정리하면, NotebookLM은 ①범위 요약 ②문제 출제 ③오답 분석을 <strong>내 자료 기반으로</strong> 해주는 도구예요. 이 두 개념이 오늘의 전부입니다!</p>
+</blockquote>
+<hr />
+<h2 id="_4">🔨 따라하기: 시험 준비 풀 사이클 실습<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<h3 id="_5">상황 설정 🎬<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>"2주 뒤 중간고사인데, 범위가 넓어서 어디서부터 시작해야 할지 모르겠어요…"</p>
+</blockquote>
+<p>이제 5단계로 시험 준비를 완성해 봅시다!</p>
+<hr />
+<h3 id="step-1-notebooklm">Step 1: 시험 범위 자료를 NotebookLM에 모두 업로드하기<a class="headerlink" href="#step-1-notebooklm" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>NotebookLM</strong>(notebooklm.google.com)에 접속하고 <strong>"새 노트북"</strong>을 만드세요</li>
+<li>노트북 이름을 <strong>"중간고사 준비 – [과목명]"</strong> 처럼 지어주세요</li>
+<li><strong>소스 추가</strong> 버튼을 눌러 시험 범위에 해당하는 자료를 업로드합니다</li>
+</ol>
+<p><strong>업로드할 수 있는 자료 유형:</strong></p>
+<ul>
+<li>📄 PDF (교과서, 프린트)</li>
+<li>📝 Google Docs (수업 필기)</li>
+<li>🔗 웹 URL (선생님이 공유한 참고 링크)</li>
+<li>✍️ 직접 붙여넣기 (손필기를 타이핑한 메모)</li>
+</ul>
+<blockquote>
+<p>✅ <strong>체크포인트</strong>: 왼쪽 소스 패널에 업로드한 자료들이 모두 보이면 성공이에요!</p>
+</blockquote>
+<hr />
+<h3 id="step-2">Step 2: 전체 범위 핵심 요약 요청하기<a class="headerlink" href="#step-2" title="Permanent link">&para;</a></h3>
+<p>채팅창에 다음과 같이 입력해 보세요:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>이 노트북에 올린 자료 전체를 기반으로,
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>시험에 나올 만한 핵심 내용을 주제별로 정리해줘.
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>각 주제마다 3줄 이내로 요약해줘.
+</span></code></pre></div>
+<p><strong>NotebookLM이 돌려줄 결과 예시:</strong></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>📌 주제 1: 조선 후기 붕당 정치
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>- 붕당은 학파와 정치적 입장에 따라 나뉜 정치 집단이다
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>- 예송 논쟁을 계기로 서인과 남인의 대립이 심화되었다
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>- 환국 정치로 이어지며 왕권과 신권의 관계가 변화했다
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>📌 주제 2: 탕평 정치
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>- 영조는 탕평비를 세우며 붕당 간 균형을 추구했다
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>- 정조는 규장각과 장용영을 설치해 왕권을 강화했다
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>...
+</span></code></pre></div>
+<blockquote>
+<p>💡 <strong>팁</strong>: "표 형식으로 정리해줘", "중요도 순으로 정리해줘" 등 형식을 지정하면 더 깔끔한 결과를 받을 수 있어요!</p>
+</blockquote>
+<hr />
+<h3 id="step-3">Step 3: 예상 문제 출제받기<a class="headerlink" href="#step-3" title="Permanent link">&para;</a></h3>
+<p>이어서 채팅창에 입력하세요:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>이 자료 범위에서 시험 예상 문제 10개를 만들어줘.
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>객관식 5개, 단답형 3개, 서술형 2개로 구성해줘.
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>난이도는 중간~어려움으로 해줘.
+</span></code></pre></div>
+<p><strong>결과 예시 (일부):</strong></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>[객관식 1] 영조의 탕평 정책에 해당하지 않는 것은?
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>① 탕평비 건립  ② 서원 정리  ③ 규장각 설치  ④ 이조전랑 권한 축소
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>[단답형 1] 정조가 왕권 강화를 위해 설치한 군사 기구의 이름은?
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>[서술형 1] 붕당 정치가 변질된 원인과 그 결과를 자료에 근거하여 설명하시오.
+</span></code></pre></div>
+<blockquote>
+<p>✅ <strong>체크포인트</strong>: 문제가 10개 생성되었고, 각 문제가 업로드한 자료 내용과 관련이 있으면 성공!</p>
+</blockquote>
+<hr />
+<h3 id="step-4">Step 4: 답을 말하고 오답 분석받기<a class="headerlink" href="#step-4" title="Permanent link">&para;</a></h3>
+<p>문제를 직접 풀어본 뒤, 채팅으로 답을 보내세요:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>내 답:
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>객관식 1번 → ③
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>단답형 1번 → 장용영
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>서술형 1번 → (내가 쓴 답안)
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>맞았는지 확인하고, 틀린 부분은 소스의 어디에 근거가 있는지 알려줘.
+</span></code></pre></div>
+<p><strong>오답 분석 결과 예시:</strong></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>❌ 객관식 1번: 오답입니다.
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>규장각은 &quot;정조&quot;의 정책이에요. 영조가 아닌 정조입니다.
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>📖 근거: [수업 프린트 3페이지] &quot;정조는 규장각을 설치하여 학문 연구와 정책 수립의 중심기관으로 삼았다&quot;
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>✅ 단답형 1번: 정답입니다!
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>📖 근거: [교과서 PDF 127쪽] &quot;장용영은 정조가 친위 군사력을 확보하기 위해 설치한 군영이다&quot;
+</span></code></pre></div>
+<blockquote>
+<p>💡 <strong>이것이 핵심입니다!</strong> 일반 ChatGPT와 달리 NotebookLM은 <strong>"교과서 127쪽"처럼 출처를 정확히 알려줘요.</strong> 그래서 틀린 부분을 원본 자료에서 바로 다시 확인할 수 있습니다.</p>
+</blockquote>
+<hr />
+<h3 id="step-5-chatgptgemini">Step 5: ChatGPT·Gemini 암기 전략과 결합하기<a class="headerlink" href="#step-5-chatgptgemini" title="Permanent link">&para;</a></h3>
+<p>NotebookLM에서 분석한 <strong>취약 개념</strong>을 ChatGPT나 Gemini에 넘겨서 암기를 강화해요.</p>
+<p><strong>ChatGPT/Gemini에게 보낼 프롬프트:</strong></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>나는 시험 공부 중인데, 아래 개념이 자꾸 헷갈려.
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>&quot;영조의 탕평책 vs 정조의 탕평책&quot; 차이를 
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>연상기억법과 플래시카드 5장으로 만들어줘.
+</span></code></pre></div>
+<p>이렇게 하면 <strong>시험 준비 풀 사이클</strong>이 완성됩니다:</p>
+<div class="mermaid">flowchart LR
+    A["📂 자료 업로드\n(NotebookLM)"] --&gt; B["📋 범위 요약\n(NotebookLM)"]
+    B --&gt; C["❓ 예상 문제\n(NotebookLM)"]
+    C --&gt; D["🔍 오답 분석\n(NotebookLM)"]
+    D --&gt; E["🧠 암기 강화\n(ChatGPT/Gemini)"]
+    E --&gt;|"반복"| C</div>
+<blockquote>
+<p>💡 <strong>잠깐!</strong> 여기까지 잘 따라오셨나요?
+5단계가 많아 보여도, 한 번 해보면 30분이면 한 사이클을 돌 수 있어요. 시험 2주 전부터 매일 한 사이클씩 돌리면 효과가 정말 큽니다! 💪</p>
+</blockquote>
+<hr />
+<h2 id="_6">⚠️ 주의할 점<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<p><strong>1. 자료 품질이 결과 품질을 결정해요</strong></p>
+<p>NotebookLM은 업로드한 자료에서만 답을 만듭니다. 수업 시간에 선생님이 "이건 시험에 나와요"라고 말한 내용이 프린트에 없다면, NotebookLM도 모릅니다. <strong>수업 중 메모한 내용도 반드시 텍스트로 정리해서 함께 업로드</strong>하세요.</p>
+<p><strong>2. AI가 만든 문제가 실제 시험과 100% 같지는 않아요</strong></p>
+<p>NotebookLM의 예상 문제는 <strong>자기 점검용</strong>입니다. 실제 시험은 선생님의 출제 스타일이 반영되니까, AI 문제를 "유일한 대비 수단"이 아니라 <strong>"추가 연습 도구"</strong>로 활용하세요.</p>
+<hr />
+<h2 id="_7">✅ 점검하기<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
+<p><strong>1. NotebookLM의 소스 기반 요약이 일반 ChatGPT 요약과 다른 핵심 차이점은 무엇인가요?</strong></p>
+<details><summary>정답 확인</summary>
+
+NotebookLM은 **내가 업로드한 자료만을 근거로** 요약합니다. 인터넷의 일반 정보가 아니라 시험 범위 자료에서만 답을 만들기 때문에, 범위를 벗어난 내용이 섞이지 않고 **출처(소스)를 정확히 표시**해줍니다.
+
+</details>
+
+<p><strong>2. 시험 준비 풀 사이클 5단계를 순서대로 말해보세요.</strong></p>
+<details><summary>정답 확인</summary>
+
+① 자료 업로드 → ② 범위 요약 → ③ 예상 문제 출제 → ④ 오답 분석 → ⑤ 암기 강화(ChatGPT/Gemini 결합)
+
+</details>
+
+<p><strong>3. NotebookLM에서 오답 분석을 받았을 때, 일반 문제집 답지와 비교한 가장 큰 장점은?</strong></p>
+<details><summary>정답 확인</summary>
+
+틀린 문제에 대해 **원본 자료의 어느 부분(몇 페이지, 어느 문서)에 근거가 있는지** 인용과 함께 알려주기 때문에, 해당 부분을 바로 찾아가 복습할 수 있습니다.
+
+</details>
+
+<hr />
+<h2 id="_8">📌 이 장의 핵심 정리<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
+<ul>
+<li>✅ NotebookLM에 시험 범위 자료를 모두 올리면, <strong>소스 기반으로 정확한 범위 요약</strong>을 받을 수 있다</li>
+<li>✅ "예상 문제 만들어줘" → 풀기 → "오답 분석해줘"로 <strong>출처가 명확한 자기 테스트</strong>가 가능하다</li>
+<li>✅ 취약 개념을 ChatGPT·Gemini에 넘겨 <strong>암기 전략까지 연결</strong>하면 시험 준비 풀 사이클이 완성된다</li>
+</ul>
+<h2 id="_9">🤔 스스로 점검해 봐요<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h2>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> NotebookLM에 자료를 업로드하고 요약을 요청할 수 있나요?</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> 예상 문제를 출제받고, 내 답에 대한 오답 분석을 요청할 수 있나요?</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> 시험 준비 풀 사이클 5단계를 설명할 수 있나요?</li>
+</ul>
+<hr />
+<h2 id="_10">🚀 다음 장 미리보기<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h2>
+<p>다음 장에서는 <strong>NotebookLM을 활용해 팀 프로젝트와 발표를 준비하는 방법</strong>을 배워볼 거예요. 여러 명의 조원이 각자 조사한 자료를 하나의 노트북에 모아 정리하고, 발표 스크립트까지 만드는 과정을 함께 해봅니다. 기대되시죠? 🎤</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  맨위로
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "navigation.indexes", "search.suggest", "search.highlight", "content.code.copy", "content.code.annotate", "toc.follow"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\ud074\ub9bd\ubcf4\ub4dc\uc5d0 \ubcf5\uc0ac\ub428", "clipboard.copy": "\ud074\ub9bd\ubcf4\ub4dc\ub85c \ubcf5\uc0ac", "search.result.more.one": "\uc774 \ubb38\uc11c\uc5d0\uc11c 1\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.more.other": "\uc774 \ubb38\uc11c\uc5d0\uc11c #\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.none": "\uac80\uc0c9\uc5b4\uc640 \uc77c\uce58\ud558\ub294 \ubb38\uc11c\uac00 \uc5c6\uc2b5\ub2c8\ub2e4", "search.result.one": "1\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.other": "#\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.placeholder": "\uac80\uc0c9\uc5b4\ub97c \uc785\ub825\ud558\uc138\uc694", "search.result.term.missing": "\ud3ec\ud568\ub418\uc9c0 \uc54a\uc740 \uac80\uc0c9\uc5b4", "select.version": "\ubc84\uc804 \uc120\ud0dd"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@10/dist/mermaid.min.js"></script>
+      
+        <script src="../javascripts/title-link.js"></script>
+      
+    
+  </body>
+</html>

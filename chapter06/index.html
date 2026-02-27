@@ -1,0 +1,2033 @@
+
+<!doctype html>
+<html lang="ko" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="AI를 단순한 답 복사 도구가 아닌 진짜 학습 도우미로 활용하는 방법을 16차시에 걸쳐 실습 중심으로 익히는 고등학생 대상 실전 교육자료입니다.">
+      
+      
+        <meta name="author" content="Created with EduFlow">
+      
+      
+      
+        <link rel="prev" href="../chapter05/">
+      
+      
+        <link rel="next" href="../chapter07/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.3">
+    
+    
+      
+        <title>발표 자료가 급할 때 – Canvas로 슬라이드와 스크립트 한번에 - AI로 공부가 달라진다: ChatGPT·Gemini·NotebookLM 실전 활용 수업</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Noto Sans KR";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/custom.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="deep-purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#chapter-06-canvas" class="md-skip">
+          콘텐츠로 이동
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="상단/헤더">
+    <a href=".." title="AI로 공부가 달라진다: ChatGPT·Gemini·NotebookLM 실전 활용 수업" class="md-header__button md-logo" aria-label="AI로 공부가 달라진다: ChatGPT·Gemini·NotebookLM 실전 활용 수업" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            AI로 공부가 달라진다: ChatGPT·Gemini·NotebookLM 실전 활용 수업
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              발표 자료가 급할 때 – Canvas로 슬라이드와 스크립트 한번에
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="deep-purple"  aria-label="다크 모드로 전환"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="다크 모드로 전환" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="deep-purple"  aria-label="라이트 모드로 전환"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="라이트 모드로 전환" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="검색" placeholder="검색" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="검색">
+        
+        <button type="reset" class="md-search__icon md-icon" title="지우기" aria-label="지우기" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            검색 초기화
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="탭" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../chapter01/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Part 1 - [1권] Part 1. 출발선에 서기 – AI 학습 도구의 전체 지도
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../chapter02/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Part 2 - [1권] Part 2. ChatGPT와 Gemini 나란히 쓰기 – 기본기 완성
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="./" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Part 3 - [1권] Part 3. Canvas와 Gems로 레벨업 – 결과물 만들기
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../chapter09/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Part 4 - [2권] Part 4. NotebookLM 집중 탐구 – 나만의 지식 도서관 만들기
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../chapter13/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Part 5 - [2권] Part 5. 실전 프로젝트 – 수행평가와 탐구의 모든 것
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../chapter15/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Part 6 - [2권] Part 6. 마무리와 도약 – 포트폴리오 완성과 다음 단계
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="네비게이션" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="AI로 공부가 달라진다: ChatGPT·Gemini·NotebookLM 실전 활용 수업" class="md-nav__button md-logo" aria-label="AI로 공부가 달라진다: ChatGPT·Gemini·NotebookLM 실전 활용 수업" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    AI로 공부가 달라진다: ChatGPT·Gemini·NotebookLM 실전 활용 수업
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part 1 - [1권] Part 1. 출발선에 서기 – AI 학습 도구의 전체 지도
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Part 1 - [1권] Part 1. 출발선에 서기 – AI 학습 도구의 전체 지도
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    왜 AI로 공부해야 할까? – 달라지는 공부의 풍경
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part 2 - [1권] Part 2. ChatGPT와 Gemini 나란히 쓰기 – 기본기 완성
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Part 2 - [1권] Part 2. ChatGPT와 Gemini 나란히 쓰기 – 기본기 완성
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    개념이 안 잡힐 때 – AI에게 제대로 질문하는 법
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter03/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    개념 사이의 연결고리 찾기 – 비교·관계·구조화 질문법
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter04/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    외울 게 산더미일 때 – AI와 함께하는 스마트 암기 전략
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter05/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    여기까지 점검! – 나만의 AI 질문 습관 만들기
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part 3 - [1권] Part 3. Canvas와 Gems로 레벨업 – 결과물 만들기
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Part 3 - [1권] Part 3. Canvas와 Gems로 레벨업 – 결과물 만들기
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    발표 자료가 급할 때 – Canvas로 슬라이드와 스크립트 한번에
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    발표 자료가 급할 때 – Canvas로 슬라이드와 스크립트 한번에
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="목차">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      목차
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🎯 이 장의 학습 목표
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📚 미리 알아야 할 것
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📚 핵심 개념
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📚 핵심 개념">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-gemini-canvas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        개념 1: Gemini Canvas란?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-ai-vs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        개념 2: AI 초안 vs. 내가 완성한 결과물
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#canvas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔨 따라하기: Canvas로 발표 자료 만들기
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔨 따라하기: Canvas로 발표 자료 만들기">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-canvas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1: Canvas 열기
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2: 구성안 살펴보고 수정 지시하기
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3: 발표 스크립트 생성하기
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 4: 내 목소리 더하기 (가장 중요한 단계! ⭐)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 5: 최종 결과물 내보내기
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ⚠️ 주의할 점
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📝 실습 전체 프롬프트 정리
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ✅ 점검하기
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📌 이 장의 핵심 정리
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🤔 스스로 점검해 봐요
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔗 다음 장 미리보기
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter07/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    글이 안 써질 때 – AI와 함께 구조 잡고 초고 쓰기
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter08/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    보고서와 자료 조사 – 신뢰할 수 있는 정보 찾고 정리하기
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part 4 - [2권] Part 4. NotebookLM 집중 탐구 – 나만의 지식 도서관 만들기
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Part 4 - [2권] Part 4. NotebookLM 집중 탐구 – 나만의 지식 도서관 만들기
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter09/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    처음 만나는 NotebookLM – 내 자료를 올리면 마법이 시작된다
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter10/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    시험 준비의 게임 체인저 – NotebookLM으로 범위 정리와 예상 문제 만들기
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter11/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    책 한 권 제대로 씹어 먹기 – NotebookLM으로 깊이 읽기
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter12/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    중간 점검! – 도구 세 개를 넘나드는 공부 루틴 설계
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part 5 - [2권] Part 5. 실전 프로젝트 – 수행평가와 탐구의 모든 것
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Part 5 - [2권] Part 5. 실전 프로젝트 – 수행평가와 탐구의 모든 것
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter13/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    탐구 주제 잡기부터 리서치 질문까지 – AI와 함께 탐구 설계하기
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter14/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    수행평가 완전 정복 – 보고서·발표·토론 한번에 준비하기
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part 6 - [2권] Part 6. 마무리와 도약 – 포트폴리오 완성과 다음 단계
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Part 6 - [2권] Part 6. 마무리와 도약 – 포트폴리오 완성과 다음 단계
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter15/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    나만의 AI 학습 포트폴리오 만들기 – 16차시를 하나로 엮다
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter16/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    다음 단계로 나아가기 – 공유, 피드백, 그리고 계속 진화하는 AI 공부법
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="목차">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      목차
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🎯 이 장의 학습 목표
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📚 미리 알아야 할 것
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📚 핵심 개념
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📚 핵심 개념">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-gemini-canvas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        개념 1: Gemini Canvas란?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-ai-vs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        개념 2: AI 초안 vs. 내가 완성한 결과물
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#canvas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔨 따라하기: Canvas로 발표 자료 만들기
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔨 따라하기: Canvas로 발표 자료 만들기">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-canvas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1: Canvas 열기
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2: 구성안 살펴보고 수정 지시하기
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3: 발표 스크립트 생성하기
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 4: 내 목소리 더하기 (가장 중요한 단계! ⭐)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 5: 최종 결과물 내보내기
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ⚠️ 주의할 점
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📝 실습 전체 프롬프트 정리
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ✅ 점검하기
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📌 이 장의 핵심 정리
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🤔 스스로 점검해 봐요
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔗 다음 장 미리보기
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="chapter-06-canvas">Chapter 06. 발표 자료가 급할 때 – Canvas로 슬라이드와 스크립트 한번에<a class="headerlink" href="#chapter-06-canvas" title="Permanent link">&para;</a></h1>
+<hr />
+<h2 id="_1">🎯 이 장의 학습 목표<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Gemini Canvas가 무엇이고, 일반 채팅과 어떻게 다른지 설명할 수 있다</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Canvas를 활용해 발표 슬라이드 구성안과 스크립트를 직접 만들 수 있다</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> AI가 만든 초안을 내 관점으로 수정·보완할 수 있다</li>
+</ul>
+<p><strong>예상 학습 시간</strong>: 약 50분</p>
+<h2 id="_2">📚 미리 알아야 할 것<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>5장까지의 내용</strong>: Gemini에게 프롬프트를 입력하고 답변을 받는 기본 흐름</li>
+<li><strong>역할 부여와 구체적 지시</strong>: 프롬프트를 잘 쓸수록 결과가 좋아진다는 것</li>
+</ul>
+<blockquote>
+<p>아직 익숙하지 않다면 앞 장을 가볍게 훑어보고 오세요. 이번 장은 그 기초 위에서 <strong>결과물을 직접 만들어보는</strong> 시간이에요! 🎉</p>
+</blockquote>
+<hr />
+<h2 id="_3">📚 핵심 개념<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<h3 id="1-gemini-canvas">개념 1: Gemini Canvas란?<a class="headerlink" href="#1-gemini-canvas" title="Permanent link">&para;</a></h3>
+<p><strong>1. 비유로 시작해볼게요</strong> ✏️</p>
+<p>일반 Gemini 채팅은 <strong>메신저로 대화하는 것</strong>과 비슷해요. 질문하고, 답변 받고, 또 질문하고…. 대화가 아래로 쭉 흘러가죠.</p>
+<p>반면 <strong>Canvas</strong>는 <strong>나란히 앉아서 같은 문서를 함께 편집하는 것</strong>과 같아요. 왼쪽에서는 AI에게 지시하고, 오른쪽 넓은 화면에서는 결과물이 실시간으로 만들어지고 수정돼요.</p>
+<div class="mermaid">flowchart LR
+    A["일반 채팅 💬"] --&gt; B["대화가 아래로\n계속 흘러감"]
+    C["Canvas 📄"] --&gt; D["결과물이 옆에\n고정되어 편집 가능"]</div>
+<p><strong>2. 정확한 정의</strong></p>
+<blockquote>
+<p><strong>Gemini Canvas</strong>는 Gemini 안에서 긴 글, 구조화된 문서, 코드 등을 <strong>별도의 편집 공간</strong>에서 작성하고 수정할 수 있는 기능이에요.</p>
+</blockquote>
+<p><strong>3. 예시로 확인</strong></p>
+<ul>
+<li>일반 채팅: "발표 슬라이드 구성 알려줘" → 답변이 채팅 흐름 속에 묻힘</li>
+<li>Canvas: 같은 요청 → 오른쪽에 <strong>편집 가능한 문서</strong>가 열리고, 부분 수정·추가 지시가 자유로움</li>
+</ul>
+<hr />
+<h3 id="2-ai-vs">개념 2: AI 초안 vs. 내가 완성한 결과물<a class="headerlink" href="#2-ai-vs" title="Permanent link">&para;</a></h3>
+<p><strong>1. 비유로 시작해볼게요</strong> 🏠</p>
+<p>Canvas로 만든 결과물은 <strong>건축가가 그려준 설계 도면</strong>과 같아요. 도면 그대로 집을 지을 수도 있지만, "거실을 좀 더 넓게", "창문 위치를 바꿔줘"라고 요청해서 <strong>내 취향에 맞게 고쳐야</strong> 비로소 '내 집'이 되죠.</p>
+<p><strong>2. 정확한 정의</strong></p>
+<blockquote>
+<p>AI가 생성한 <strong>초안(Draft)</strong>은 출발점이지, 최종 결과물이 아닙니다. 내 지식, 관점, 스타일을 더해 수정하는 과정이 있어야 '나의 발표 자료'가 됩니다.</p>
+</blockquote>
+<p><strong>3. 왜 중요한가요?</strong></p>
+<ul>
+<li>수행평가에서 "AI가 다 해줬네?"라는 평가를 피할 수 있어요</li>
+<li>발표할 때 <strong>내가 직접 이해한 내용</strong>이어야 질문에도 답할 수 있어요</li>
+<li><strong>AI는 도구</strong>, 완성하는 건 <strong>나</strong>라는 인식이 핵심이에요</li>
+</ul>
+<blockquote>
+<p>💡 <strong>잠깐!</strong> 여기까지 이해가 잘 되셨나요?
+Canvas = 나란히 편집하는 공간, AI 초안 = 출발점. 이 두 가지만 기억하면 실습 준비 완료예요!</p>
+</blockquote>
+<hr />
+<h2 id="canvas">🔨 따라하기: Canvas로 발표 자료 만들기<a class="headerlink" href="#canvas" title="Permanent link">&para;</a></h2>
+<p><strong>시나리오</strong>: "기후 변화가 일상생활에 미치는 영향"이라는 주제로 5분 분량 발표를 준비해야 해요. 슬라이드 구성안과 발표 스크립트를 Canvas로 한번에 만들어봅시다.</p>
+<hr />
+<h3 id="step-1-canvas">Step 1: Canvas 열기<a class="headerlink" href="#step-1-canvas" title="Permanent link">&para;</a></h3>
+<p><strong>방법</strong>: Gemini(gemini.google.com)에 접속한 뒤, 프롬프트를 입력하면 Canvas가 자동으로 열리는 경우가 있어요. 혹은 직접 Canvas 모드를 선택할 수도 있어요.</p>
+<p><strong>입력할 프롬프트</strong>:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>다음 주제로 5분 발표용 슬라이드 구성안을 만들어줘.
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>주제: 기후 변화가 일상생활에 미치는 영향
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>대상: 고등학교 수행평가 발표
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>슬라이드 6장 구성으로, 각 장마다 제목과 핵심 포인트 3개씩 정리해줘.
+</span></code></pre></div>
+<p><strong>예상 결과</strong>: 화면 오른쪽(또는 별도 패널)에 슬라이드 구성안이 문서 형태로 나타나요.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>[Canvas 편집 화면에 나타나는 예시]
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>슬라이드 1: 오프닝 – 우리의 일상은 안전할까?
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>• 최근 폭염·한파 사례
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>• &quot;나와는 먼 이야기&quot;라는 오해
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>• 오늘 발표의 목적 소개
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>슬라이드 2: 기후 변화란 무엇인가
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>• 기후 변화의 정의
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>• 산업화 이후 평균 기온 변화
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>• 온실가스의 역할
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>...
+</span></code></pre></div>
+<blockquote>
+<p>✅ <strong>체크포인트</strong>: 오른쪽 편집 공간에 슬라이드 구성안이 보이나요? 보인다면 성공이에요!</p>
+</blockquote>
+<hr />
+<h3 id="step-2">Step 2: 구성안 살펴보고 수정 지시하기<a class="headerlink" href="#step-2" title="Permanent link">&para;</a></h3>
+<p>AI가 만든 구성안을 읽어보세요. 마음에 들지 않는 부분이 있을 거예요. <strong>이것이 정상이에요!</strong> 왼쪽 채팅창에 수정 지시를 보내봅시다.</p>
+<p><strong>수정 프롬프트 예시</strong>:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>슬라이드 3에 &quot;음식 가격 상승&quot; 관련 내용을 추가해줘.
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>그리고 슬라이드 6의 마무리를 &quot;우리가 할 수 있는 작은 실천 3가지&quot;로 바꿔줘.
+</span></code></pre></div>
+<p><strong>핵심 포인트</strong>: Canvas에서는 전체를 다시 만들 필요 없이 <strong>원하는 부분만 콕 집어서</strong> 수정할 수 있어요. 이것이 일반 채팅과의 가장 큰 차이예요.</p>
+<hr />
+<h3 id="step-3">Step 3: 발표 스크립트 생성하기<a class="headerlink" href="#step-3" title="Permanent link">&para;</a></h3>
+<p>슬라이드 구성안이 마음에 들면, 이제 <strong>발표할 때 읽을 스크립트</strong>를 만들어봐요.</p>
+<p><strong>입력할 프롬프트</strong>:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>위 슬라이드 구성안을 바탕으로 5분 분량 발표 스크립트를 작성해줘.
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>조건:
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>- 고등학생이 자연스럽게 말하는 톤
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>- 각 슬라이드당 40~60초 분량
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>- 청중에게 질문을 던지는 부분 2곳 포함
+</span></code></pre></div>
+<p><strong>예상 결과</strong>:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>[슬라이드 1 스크립트]
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>안녕하세요, 오늘 발표를 맡은 ○○○입니다.
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>여러분, 지난여름 정말 더웠죠? 혹시 &quot;이게 정상인가?&quot;라고
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>생각해보신 적 있나요? 오늘은 기후 변화가 우리 일상에
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>어떤 영향을 미치고 있는지 이야기해보려 합니다.
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>[슬라이드 2 스크립트]
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>먼저 기후 변화가 뭔지 간단히 짚어볼게요...
+</span></code></pre></div>
+<hr />
+<h3 id="step-4">Step 4: 내 목소리 더하기 (가장 중요한 단계! ⭐)<a class="headerlink" href="#step-4" title="Permanent link">&para;</a></h3>
+<p>여기가 <strong>'AI가 대신 한 것'과 '내가 완성한 것'의 경계</strong>예요.</p>
+<p>Canvas에서 스크립트를 직접 클릭하고 다음을 수정해보세요.</p>
+<p><strong>직접 수정할 3가지</strong>:
+- <strong>내 경험 넣기</strong>: "저는 지난달 장을 보면서 과일 가격이 올라 깜짝 놀랐는데요"처럼 실제 경험을 한 문장 추가
+- <strong>어색한 표현 고치기</strong>: AI가 쓴 말투 중 내 스타일이 아닌 것을 자연스럽게 변경
+- <strong>핵심 데이터 확인</strong>: AI가 제시한 숫자나 사실이 정확한지 검색으로 확인하고, 출처 추가</p>
+<div class="mermaid">flowchart TD
+    A["AI 초안 생성 🤖"] --&gt; B["내가 읽고 검토 👀"]
+    B --&gt; C["내 경험·관점 추가 ✍️"]
+    C --&gt; D["사실 확인·출처 보완 🔍"]
+    D --&gt; E["나의 발표 자료 완성! 🎤"]</div>
+<blockquote>
+<p>💡 <strong>잠깐!</strong> 이 Step 4를 건너뛰면 그냥 'AI의 발표'가 되어버려요.
+5분만 투자해서 내 색깔을 입히면, 그때부터 <strong>진짜 내 발표 자료</strong>가 돼요!</p>
+</blockquote>
+<hr />
+<h3 id="step-5">Step 5: 최종 결과물 내보내기<a class="headerlink" href="#step-5" title="Permanent link">&para;</a></h3>
+<p>완성된 문서를 활용하는 방법이에요.</p>
+<ul>
+<li><strong>복사해서 파워포인트에 붙여넣기</strong>: 슬라이드 구성안을 보고 PPT 각 장에 내용 배치</li>
+<li><strong>Google Docs로 내보내기</strong>: Canvas 상단의 공유/내보내기 기능 활용</li>
+<li><strong>스크립트는 휴대폰 메모장에</strong>: 발표 연습할 때 보기 편하게 옮겨두기</li>
+</ul>
+<blockquote>
+<p>✅ <strong>체크포인트</strong>: 슬라이드 구성안 6장 + 스크립트가 모두 완성되었고, 최소 3곳 이상 내가 직접 수정한 부분이 있나요? 있다면 완벽해요! 👏</p>
+</blockquote>
+<hr />
+<h2 id="_4">⚠️ 주의할 점<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<p><strong>1. AI가 만든 숫자를 그대로 믿지 마세요</strong> 🔢</p>
+<p>AI는 가끔 그럴듯하지만 <strong>부정확한 통계</strong>를 만들어낼 수 있어요. "전 세계 평균 기온이 2도 상승"이라고 AI가 썼다면, 반드시 검색해서 확인하세요. 발표 중 "그 수치 출처가 뭐예요?"라는 질문을 받을 수 있어요.</p>
+<p><strong>2. Canvas가 안 열릴 때는 당황하지 마세요</strong> 🧘</p>
+<p>Gemini 버전이나 계정 상태에 따라 Canvas가 바로 나타나지 않을 수 있어요. 그럴 때는 프롬프트에 <strong>"Canvas에서 작성해줘"</strong>라고 명시하거나, 일반 채팅 결과를 복사해서 문서 편집기에 붙여넣는 것으로 대체할 수 있어요.</p>
+<hr />
+<h2 id="_5">📝 실습 전체 프롬프트 정리<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<p>아래 프롬프트를 순서대로 Gemini에 입력하면 이번 장의 실습을 처음부터 따라할 수 있어요.</p>
+<p><strong>프롬프트 1 – 슬라이드 구성안</strong>:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>다음 주제로 5분 발표용 슬라이드 구성안을 만들어줘.
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>주제: 기후 변화가 일상생활에 미치는 영향
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>대상: 고등학교 수행평가 발표
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>슬라이드 6장 구성으로, 각 장마다 제목과 핵심 포인트 3개씩 정리해줘.
+</span></code></pre></div></p>
+<p><strong>프롬프트 2 – 수정 지시</strong> (자신의 상황에 맞게 변경):
+<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>슬라이드 3에 &quot;음식 가격 상승&quot; 관련 내용을 추가해줘.
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>슬라이드 6의 마무리를 &quot;우리가 할 수 있는 작은 실천 3가지&quot;로 바꿔줘.
+</span></code></pre></div></p>
+<p><strong>프롬프트 3 – 스크립트 생성</strong>:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>위 슬라이드 구성안을 바탕으로 5분 분량 발표 스크립트를 작성해줘.
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>조건:
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>- 고등학생이 자연스럽게 말하는 톤
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>- 각 슬라이드당 40~60초 분량
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>- 청중에게 질문을 던지는 부분 2곳 포함
+</span></code></pre></div></p>
+<hr />
+<h2 id="_6">✅ 점검하기<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<p><strong>1. Gemini Canvas는 일반 채팅과 어떤 점이 다른가요?</strong></p>
+<details><summary>정답 확인</summary>
+
+일반 채팅은 대화가 아래로 계속 흘러가지만, Canvas는 **별도의 편집 공간**에서 결과물이 고정되어 있어 원하는 부분만 골라 수정할 수 있어요. 긴 문서나 구조화된 결과물을 만들 때 훨씬 효율적이에요.
+
+</details>
+
+<p><strong>2. AI가 만든 발표 초안을 "내 것"으로 만들려면 어떤 과정이 필요한가요?</strong></p>
+<details><summary>정답 확인</summary>
+
+최소 3가지를 해야 해요. ① 내 경험이나 관점을 추가하기 ② 어색한 표현을 내 말투로 고치기 ③ AI가 제시한 사실·숫자의 정확성을 검색으로 확인하고 출처 보완하기. 이 과정을 거쳐야 비로소 '나의 발표 자료'가 돼요.
+
+</details>
+
+<p><strong>3. AI가 작성한 통계 데이터를 발표에서 그대로 사용해도 될까요?</strong></p>
+<details><summary>정답 확인</summary>
+
+안 돼요! AI는 그럴듯하지만 부정확한 숫자를 생성할 수 있어요. 반드시 **별도로 검색해서 사실 확인**을 한 뒤 출처와 함께 사용해야 해요.
+
+</details>
+
+<hr />
+<h2 id="_7">📌 이 장의 핵심 정리<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
+<ul>
+<li>✅ <strong>Canvas</strong>는 결과물을 옆에 두고 편집하는 작업 공간이에요. 긴 문서를 만들 때 일반 채팅보다 훨씬 편리해요.</li>
+<li>✅ AI 초안은 <strong>출발점</strong>이에요. 내 경험·관점·사실 확인을 더해야 진짜 내 결과물이 돼요.</li>
+<li>✅ 슬라이드 구성안 → 스크립트 생성 → 내 색깔 수정, 이 <strong>3단계 흐름</strong>을 기억하세요.</li>
+</ul>
+<h2 id="_8">🤔 스스로 점검해 봐요<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Canvas가 일반 채팅과 다른 점을 친구에게 설명할 수 있나요?</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> 자신의 발표 주제로 Canvas에서 슬라이드 구성안을 만들어봤나요?</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> AI 초안에서 최소 3곳 이상 직접 수정해봤나요?</li>
+</ul>
+<hr />
+<h2 id="_9">🔗 다음 장 미리보기<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h2>
+<p>다음 장에서는 <strong>Gems(젬스)</strong>를 배워요. Canvas가 '작업 공간'이었다면, Gems는 <strong>나만의 맞춤 AI 비서</strong>를 만드는 기능이에요. "항상 이런 스타일로 답해줘"라고 매번 말할 필요 없이, 한 번 설정해두면 자동으로 적용되는 편리한 기능이랍니다. 기대되시죠? 😊</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  맨위로
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "navigation.indexes", "search.suggest", "search.highlight", "content.code.copy", "content.code.annotate", "toc.follow"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\ud074\ub9bd\ubcf4\ub4dc\uc5d0 \ubcf5\uc0ac\ub428", "clipboard.copy": "\ud074\ub9bd\ubcf4\ub4dc\ub85c \ubcf5\uc0ac", "search.result.more.one": "\uc774 \ubb38\uc11c\uc5d0\uc11c 1\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.more.other": "\uc774 \ubb38\uc11c\uc5d0\uc11c #\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.none": "\uac80\uc0c9\uc5b4\uc640 \uc77c\uce58\ud558\ub294 \ubb38\uc11c\uac00 \uc5c6\uc2b5\ub2c8\ub2e4", "search.result.one": "1\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.other": "#\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.placeholder": "\uac80\uc0c9\uc5b4\ub97c \uc785\ub825\ud558\uc138\uc694", "search.result.term.missing": "\ud3ec\ud568\ub418\uc9c0 \uc54a\uc740 \uac80\uc0c9\uc5b4", "select.version": "\ubc84\uc804 \uc120\ud0dd"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@10/dist/mermaid.min.js"></script>
+      
+        <script src="../javascripts/title-link.js"></script>
+      
+    
+  </body>
+</html>
